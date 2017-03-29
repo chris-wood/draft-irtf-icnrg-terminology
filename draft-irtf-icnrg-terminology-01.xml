@@ -78,7 +78,7 @@
       and Content-Centric Networking (CCN) are two prominent ICN architectures.
       This document provides an overview of the terminology and
       definitions that have been used in describing concepts in these two projects.
-      While there are other ICN architectures, they are not part of the NDN and CCN 
+      While there are other ICN architectures, they are not part of the NDN and CCN
       vision and as such are out of scope for this document.</t>
     </abstract>
   </front>
@@ -333,6 +333,26 @@
         </list></t>
       </section>
 
+      <section anchor="packet-types" title="Terms related to Packet Types">
+        <t><list>
+          <t>Link: a type of Data packet whose body contains the Name of another
+              Data packet. This inner Name is often a Full Name, i.e., it specifies
+              the Packet ID of the corresponding Data packet, but this is not a requirement.
+              <list style="empty">
+                  <t>Common aliases include: pointer.</t>
+              </list>
+          </t>
+          <t>Manifest: a type of Data packet that contains Full Name Links to one or more
+              Data Packets. Manifests group collections of related Data packets under
+              a single Name. This has additional benefit of amortizing the signature verification
+              cost for each Data packet referenced by the inner Links. Manifests typically
+              contain additional metadata, e.g., the size (in bytes) of each linked Data
+              packet and the cryptographic hash digest of all data contained in the
+              linked Data packets. 
+          </t>
+        </list></t>
+      </section>
+
       <section anchor="security" title="Terms related to Data-Centric Security">
         <t><list>
           <t>Directly secured data packet: a data packet with inherent security properties (authenticity and optionally
@@ -440,7 +460,7 @@
               forwarding strategy can take input from ICN Forwarding Information Base (FIB), measured data plane
               performance parameters, and/or use other mechanisms to make the decision.
               <list style="empty">
-              <t>Common aliases include: Interest forwarding strategy.</t> 
+              <t>Common aliases include: Interest forwarding strategy.</t>
           </list>
           </t>
 
@@ -491,7 +511,7 @@
           <t>Managed in-network storage (repository, repo): an entity acting as an ICN producer that implements managed caching.</t>
 
            <t>ICN Routing plane: an ICN protocol or a set of ICN protocols to exchange information about name space reachability.</t>
-           
+
            <t>ICN Routing Information Base (RIB): a database that contains a set of prefix-face mappings that are produced by running one or multiple routing protocols. RIB is used to populate FIB.</t>
 
            <!--<t>Off-path caching:</t>
