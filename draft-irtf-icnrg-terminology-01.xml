@@ -348,7 +348,7 @@
               cost for each Data packet referenced by the inner Links. Manifests typically
               contain additional metadata, e.g., the size (in bytes) of each linked Data
               packet and the cryptographic hash digest of all data contained in the
-              linked Data packets. 
+              linked Data packets.
           </t>
         </list></t>
       </section>
